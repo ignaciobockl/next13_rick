@@ -1,20 +1,30 @@
-'use client';
+import CharacterClient from '@/components/CSR/CharacterClient';
+import CounterClient from '@/components/CSR/CounterClient';
+import CharacterServer from '@/components/SSR/CharacterServer';
+import { useAppDispatch } from '@/redux/hooks';
+import { Providers } from '@/redux/providers';
 
-import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+const HomePage = async () => {
+  // const dispatch = useAppDispatch()
 
-import { decrement, increment } from '@/redux/features/counterSlice';
-
-const HomePage = () => {
-  const count = useAppSelector((state) => state.counterReducer.counter);
-  const dispatch = useAppDispatch();
+  const req = await fetch('https://rickandmortyapi.com/api/character');
+  const dataCharacter = await req.json();
 
   return (
     <div>
-      <h1>total: {count}</h1>
+      <Providers>
+        <CounterClient />
+        <br />
 
-      <button onClick={() => dispatch(increment())}>Increment</button>
+        <CharacterClient />
+      </Providers>
 
-      <button onClick={() => dispatch(decrement())}>Decrement</button>
+      <p>----------------------------------</p>
+      {/* {dataCharacter?.results?.length > 0 && (
+        <CharacterServer data={dataCharacter?.results} />
+      )} */}
+        <CharacterServer data={dataCharacter} />
+
     </div>
   );
 };

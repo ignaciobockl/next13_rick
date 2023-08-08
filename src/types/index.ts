@@ -1,6 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
-
-interface CharacterType {
+export interface CharacterType {
   id: number;
   name: string;
   status: 'Alive' | 'Dead' | 'unknown';
@@ -16,7 +14,15 @@ interface CharacterType {
 }
 
 export interface CharactersType {
-    results: Array<CharacterType>;
+  info: InfoType;
+  results: Array<CharacterType>;
+}
+
+interface InfoType {
+  count: number;
+  next: string;
+  pages: number;
+  prev: null;
 }
 
 interface LocationType {
