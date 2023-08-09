@@ -6,7 +6,7 @@ export interface CharacterType {
   type: string;
   gender: 'Female' | 'Male' | 'Genderless' | 'unknown';
   origin: OriginType;
-  location: LocationType;
+  location: LocationCharacterType;
   image: string;
   episode: Array<string>;
   url: string;
@@ -25,9 +25,23 @@ interface InfoType {
   prev: null;
 }
 
-interface LocationType {
+export interface LocationType {
+  id: number;
+  name: string;
+  type: string;
+  dimension: string;
+  residents:Array<string>;
+  url: string;
+  created: string;
+}
+interface LocationCharacterType {
   name: string;
   url: string;
+}
+
+export interface LocationsType {
+  info: InfoType;
+  results: Array<LocationType>;
 }
 
 interface OriginType {

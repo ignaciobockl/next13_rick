@@ -4,8 +4,8 @@ import { CharacterType } from '@/types';
 const CharacterServer = (props: any) => {
 
   const {data} = props;
-  console.log("🥤 ~ file: CharacterServer.tsx:7 ~ CharacterServer ~ data:", data)
 
+  
   // TODO: refetch y control de la data por si cambia
 
   return (
