@@ -7,16 +7,25 @@ const LocationTable = (props: any) => {
 
   return (
     <table className='table-auto'>
-      <h1>LOCATIONS</h1>
       <thead>
-        <tr>NUMBER</tr>
-        <tr>NAME</tr>
-        <tr>TYPE</tr>
-        <tr>DIMENSION</tr>
-        <tr>RESIDENTS</tr>
+        <tr>
+          <th>NUMBER</th>
+        </tr>
+        <tr>
+          <th>NAME</th>
+        </tr>
+        <tr>
+          <th>TYPE</th>
+        </tr>
+        <tr>
+          <th>DIMENSION</th>
+        </tr>
+        <tr>
+          <th>RESIDENTS</th>
+        </tr>
       </thead>
       <tbody>
-        {locations?.results?.map((item: LocationType) => (
+        {locations?.data?.map((item: LocationType) => (
           <tr key={item.id}>
             <td>{item.id}</td>
             <td>{item.name}</td>

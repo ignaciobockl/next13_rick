@@ -1,12 +1,12 @@
 import { CharacterType, CharactersType } from '@/types';
 import {
-  AllCharactersAdapterResponseType,
+  CharactersAdapterResponseType,
   CharacterAdapterResponseType,
 } from './types';
 
-export const allCharacterAdapter = (
+export const charactersAdapter = (
   APIInfo: CharactersType
-): AllCharactersAdapterResponseType => {
+): CharactersAdapterResponseType => {
   let data: Array<any> = [];
 
   if (APIInfo.info.count > 0) {

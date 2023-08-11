@@ -1,4 +1,4 @@
-import { allCharacterAdapter } from '@/adapters/characterAdapter';
+import { charactersAdapter } from '@/adapters/characterAdapter';
 
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
@@ -10,7 +10,7 @@ export const characterSlice = createApi({
   endpoints: (builder) => ({
     getCharacters: builder.query({
       query: () => 'character',
-      transformResponse: allCharacterAdapter,
+      transformResponse: charactersAdapter,
     }),
     getCharacterById: builder.query({
       query: ({ id }) => `character/${id}`,

@@ -1,15 +1,5 @@
 import { LocationCharacterType, OriginType } from '@/types';
 
-export interface AllCharactersAdapterResponseType {
-  data: CharacterAdapterResponseType[] | [];
-  pagination: {
-    nextPage: string | null;
-    prevPage: string | null,
-    quantity: number,
-    totalPages: number,
-  }
-}
-
 export interface CharacterAdapterResponseType {
   id: number;
   name: string;
@@ -23,4 +13,33 @@ export interface CharacterAdapterResponseType {
   episode: Array<string>;
   url: string;
   creationDate: string;
+}
+export interface CharactersAdapterResponseType {
+  data: CharacterAdapterResponseType[] | [];
+  pagination: {
+    nextPage: string | null;
+    prevPage: string | null;
+    quantity: number;
+    totalPages: number;
+  };
+}
+
+export interface LocationAdapterResponseType {
+  id: number;
+  name: string;
+  type: string;
+  dimension: string;
+  residents: Array<string>;
+  url: string;
+  creationDate: string;
+}
+
+export interface LocationsAdapterResponseType {
+  data: LocationAdapterResponseType[] | [];
+  pagination: {
+    nextPage: string | null;
+    prevPage: string | null;
+    quantity: number;
+    totalPages: number;
+  };
 }
