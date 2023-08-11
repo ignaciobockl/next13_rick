@@ -1,8 +1,8 @@
 'use client';
 
-import { useGetCharactersQuery } from '@/redux/services/characterSlice';
+import { CharacterAdapterResponseType } from '@/adapters/types';
 
-import { CharacterType } from '@/types';
+import { useGetCharactersQuery } from '@/redux/services/characterSlice';
 
 const CharacterClient = () => {
   const { data, isLoading } = useGetCharactersQuery({});
@@ -13,7 +13,7 @@ const CharacterClient = () => {
       {isLoading ? (
         <h1 className='text-red-600'>Loading...</h1>
       ) : (
-        data?.results?.map((item: CharacterType) => (
+        data?.data?.map((item: CharacterAdapterResponseType) => (
           <h3 className='text-lime-300' key={item.id}>
             {item.name}
           </h3>

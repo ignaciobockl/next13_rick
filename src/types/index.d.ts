@@ -1,3 +1,5 @@
+import { InfoType } from './globalTypes';
+
 export interface CharacterType {
   id: number;
   name: string;
@@ -18,19 +20,12 @@ export interface CharactersType {
   results: Array<CharacterType>;
 }
 
-interface InfoType {
-  count: number;
-  next: string;
-  pages: number;
-  prev: null;
-}
-
 export interface LocationType {
   id: number;
   name: string;
   type: string;
   dimension: string;
-  residents:Array<string>;
+  residents: Array<string>;
   url: string;
   created: string;
 }
