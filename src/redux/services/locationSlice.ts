@@ -1,17 +1,11 @@
-import { HYDRATE } from 'next-redux-wrapper'
 
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-export const locationApi = createApi({
+export const locationSlice = createApi({
   reducerPath: 'locationApi',
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://rickandmortyapi.com/api/',
   }),
-  extractRehydrationInfo(action, { reducerPath }) {
-    if (action.type === HYDRATE) {
-      return action.payload[reducerPath]
-    }
-  },
   endpoints: (builder) => ({
     getLocations: builder.query({
       query: () => 'location',
@@ -22,4 +16,4 @@ export const locationApi = createApi({
   }),
 });
 
-export const { useGetLocationsQuery, useGetLocationByIdQuery } = locationApi;
+export const { useGetLocationsQuery, useGetLocationByIdQuery } = locationSlice;

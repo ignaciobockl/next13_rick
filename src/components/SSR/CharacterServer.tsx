@@ -1,4 +1,3 @@
-import { useGetCharactersQuery } from '@/redux/services/characterApi';
 import { CharacterType } from '@/types';
 
 const CharacterServer = (props: any) => {
