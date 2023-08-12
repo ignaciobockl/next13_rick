@@ -1,11 +1,8 @@
 import type { Metadata } from 'next';
 
-import { Inter } from 'next/font/google';
+import { patrickHandSC } from '@/styles/fonts';
 
 import './globals.css';
-// import { Providers } from '@/redux/providers';
-
-const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -19,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body className={inter.className}>{children}</body>
+      <body className={patrickHandSC.className}>{children}</body>
     </html>
   );
 }
