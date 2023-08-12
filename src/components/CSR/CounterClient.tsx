@@ -8,18 +8,18 @@ const CounterClient = () => {
   const dispatch = useAppDispatch();
 
   return (
-    <>
-      <h1>COUNTER:</h1>
+    <div className='p-6 sm:p-10'>
+      <h1 className='text-center font-bold text-3xl'>COUNTER</h1>
       <br />
 
       <h1>total: {count}</h1>
       <br />
 
-      <button onClick={() => dispatch(increment())}>Increment </button>
+      <button className='btn' onClick={() => dispatch(increment())}>Increment </button>
 
       <button onClick={() => dispatch(decrement())}>Decrement</button>
       <br />
-    </>
+    </div>
   );
 };
 
