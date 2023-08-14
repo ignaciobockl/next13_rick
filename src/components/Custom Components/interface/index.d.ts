@@ -19,7 +19,7 @@ export type GenericButtonType =
       | 'btn-error'
       | `bg-${string}-${number}`;
     glass?: boolean;
-    // iconUrl?: string | null;
+    iconUrl?: string | null;
     name?: string;
     /**
      * @deprecated Use either activeButton or outlineButton, not both.

@@ -9,7 +9,7 @@ import { GenericButtonType } from './interface';
  * @param {string} [children] - Content to display within the button.
  * @param {boolean} [disabled=false] (Optional) - Specifies whether the button is disabled.
  * @param {boolean} [glass=false] (Optional) - Specifies whether the button should have a glass effect.
-//  * @param {string} [iconUrl] (Optional) - URL of the icon to display before the text.
+ * @param {string} [iconUrl] (Optional) - URL of the icon to display before the text.
  * @param {string} [name] (Optional) - The name attribute of the button.
  * @param {React.MouseEventHandler<HTMLButtonElement>} [onClick] (Optional) - Event handler for the button's click event.
  * @param {boolean} [outlineButton=false] (Optional) - Specifies whether the button should have an outline style.
@@ -32,7 +32,7 @@ const GenericButton = (props: GenericButtonType) => {
     color = 'btn-primary',
     disabled = false,
     glass = false,
-    // iconUrl = null,
+    iconUrl = null,
     name,
     onClick,
     outlineButton = false,
@@ -50,6 +50,7 @@ const GenericButton = (props: GenericButtonType) => {
       'Both activeButton and outlineButton are enabled. Use either one, not both.'
     );
   }
+  
 
   return (
     <button
@@ -57,12 +58,12 @@ const GenericButton = (props: GenericButtonType) => {
       className={`btn 
         ${activeButton ? 'btn-active' : ''}
         ${className} 
-        ${color ? color : ''} 
+        ${color ?? ''} 
         ${glass ? 'glass' : ''}
         ${outlineButton ? 'btn-outline' : ''} 
-        ${size && size} 
-        ${sizeText ? sizeText : ''}
-        ${textColor ? textColor : ''} 
+        ${size}
+        ${sizeText ?? ''}
+        ${textColor ?? ''} 
         ${withoutAnimation ? 'no-animation' : ''}`}
       disabled={disabled}
       name={name}
@@ -72,9 +73,9 @@ const GenericButton = (props: GenericButtonType) => {
       type={type}
       value={value}
     >
-      {/* {iconUrl && (
+      {iconUrl && (
         <svg
-          xmlns='http://www.w3.org/2000/svg'
+          xmlns={'http://www.w3.org/2000/svg'}
           className='h-6 w-6 inline-block mr-2'
           fill='none'
           viewBox='0 0 24 24'
@@ -87,7 +88,7 @@ const GenericButton = (props: GenericButtonType) => {
             d='M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z'
           />
         </svg>
-      )} */}
+      )}
       {children || 'GENERIC BUTTON'}
     </button>
   );

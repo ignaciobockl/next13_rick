@@ -1,8 +1,13 @@
 'use client';
 
+import { Md4KPlus } from "react-icons/md";
+
 import { decrement, increment } from '@/redux/features/counterSlice';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+
 import GenericButton from '../Custom Components/GenericButton';
+
+
 
 const CounterClient = () => {
   const count = useAppSelector((state) => state.counter.value);
@@ -30,7 +35,7 @@ const CounterClient = () => {
       <GenericButton
         color='bg-fuchsia-700'
         disabled={false}
-        // iconUrl={''}
+        iconUrl={Md4KPlus}
         onClick={handleDecrementClick}
         textColor='text-yellow-500'
         type='button'
