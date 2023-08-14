@@ -30,6 +30,7 @@ const CounterClient = () => {
       <GenericButton
         color='bg-fuchsia-700'
         disabled={false}
+        // iconUrl={''}
         onClick={handleDecrementClick}
         textColor='text-yellow-500'
         type='button'

@@ -9,6 +9,7 @@ import { GenericButtonType } from './interface';
  * @param {string} [children] - Content to display within the button.
  * @param {boolean} [disabled=false] (Optional) - Specifies whether the button is disabled.
  * @param {boolean} [glass=false] (Optional) - Specifies whether the button should have a glass effect.
+//  * @param {string} [iconUrl] (Optional) - URL of the icon to display before the text.
  * @param {string} [name] (Optional) - The name attribute of the button.
  * @param {React.MouseEventHandler<HTMLButtonElement>} [onClick] (Optional) - Event handler for the button's click event.
  * @param {boolean} [outlineButton=false] (Optional) - Specifies whether the button should have an outline style.
@@ -20,6 +21,7 @@ import { GenericButtonType } from './interface';
  * @param {string} [value] (Optional) - The value attribute of the button.
  * @param {boolean} [withoutAnimation=false] (Optional) - Specifies whether to disable click animation.
  * @returns {JSX.Element} A stylized button element.
+ * @throws Will throw an error if both `activeButton` and `outlineButton` are enabled simultaneously.
  */
 
 const GenericButton = (props: GenericButtonType) => {
@@ -44,12 +46,10 @@ const GenericButton = (props: GenericButtonType) => {
   } = props;
 
   if (activeButton && outlineButton) {
-    throw new Error(
-      'activeButton and outlineButton cannot be enabled simultaneously.'
+    console.warn(
+      'Both activeButton and outlineButton are enabled. Use either one, not both.'
     );
   }
-
-  // TODO: icon start and end
 
   return (
     <button
@@ -74,17 +74,17 @@ const GenericButton = (props: GenericButtonType) => {
     >
       {/* {iconUrl && (
         <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6 inline-block mr-2"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
+          xmlns='http://www.w3.org/2000/svg'
+          className='h-6 w-6 inline-block mr-2'
+          fill='none'
+          viewBox='0 0 24 24'
+          stroke='currentColor'
         >
           <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+            strokeLinecap='round'
+            strokeLinejoin='round'
+            strokeWidth='2'
+            d='M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z'
           />
         </svg>
       )} */}
