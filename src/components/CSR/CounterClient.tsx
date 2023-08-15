@@ -6,6 +6,7 @@ import { decrement, increment } from '@/redux/features/counterSlice';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 
 import GenericButton from '../Custom Components/GenericButton';
+import { DatePicker } from '../ui/DatePicker';
 
 const CounterClient = () => {
   const count = useAppSelector((state) => state.counter.value);
@@ -42,6 +43,10 @@ const CounterClient = () => {
         Decrement
       </GenericButton>
       <br />
+      <br />
+
+      <DatePicker />
+
     </div>
   );
 };

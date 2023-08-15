@@ -1,5 +1,3 @@
-export interface DaisyUIType {}
-
 export type GenericButtonType =
   React.ButtonHTMLAttributes<HTMLButtonElement> & {
     /**
@@ -61,3 +59,6 @@ export type GenericButtonType =
           outlineButton?: true;
         }
     );
+
+
+
