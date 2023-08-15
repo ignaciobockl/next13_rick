@@ -18,8 +18,9 @@ export type GenericButtonType =
       | 'btn-warning'
       | 'btn-error'
       | `bg-${string}-${number}`;
+    endIcon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+    endIconStyles?: React.CSSProperties;
     glass?: boolean;
-    iconUrl?: string | null;
     name?: string;
     /**
      * @deprecated Use either activeButton or outlineButton, not both.
@@ -40,6 +41,8 @@ export type GenericButtonType =
       | 'text-7xl'
       | 'text-8xl'
       | `text-[${number}px]`;
+    startIcon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+    startIconStyles?: React.CSSProperties;
     textColor?:
       | 'text-inherit'
       | 'text-current'

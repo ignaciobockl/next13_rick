@@ -8,13 +8,16 @@ import { GenericButtonType } from './interface';
  * @param {string} [className=''] (Optional) - Additional CSS classes to apply to the button.
  * @param {string} [children] - Content to display within the button.
  * @param {boolean} [disabled=false] (Optional) - Specifies whether the button is disabled.
+ * @param {React.ComponentType<React.SVGProps<SVGSVGElement>>} [endIcon] - The icon component to display after the text.
+ * @param {React.CSSProperties} [endIconStyles] - Styles for the end icon.
  * @param {boolean} [glass=false] (Optional) - Specifies whether the button should have a glass effect.
- * @param {string} [iconUrl] (Optional) - URL of the icon to display before the text.
  * @param {string} [name] (Optional) - The name attribute of the button.
  * @param {React.MouseEventHandler<HTMLButtonElement>} [onClick] (Optional) - Event handler for the button's click event.
  * @param {boolean} [outlineButton=false] (Optional) - Specifies whether the button should have an outline style.
  * @param {string} [size='btn-md'] (Optional) - Specifies the text size of the button using predefined classes like 'text-xs' or 'text-lg', or a custom size using 'text-[18px]'.
  * @param {string} [sizeText=''] (Optional) - Additional classes for customizing the text size of the button.
+ * @param {React.ComponentType<React.SVGProps<SVGSVGElement>>} [startIcon] - The icon component to display before the text.
+ * @param {React.CSSProperties} [startIconStyles] - Styles for the icon.
  * @param {number} [tabIndex=0] - Specifies the tab index of the button for keyboard navigation.
  * @param {string} [textColor=''] (Optional) - Specifies the text color of the button 'text-rose-600' or 'text-black'.
  * @param {'button' | 'reset' | 'submit'} [type] - Specifies the type of the button.
@@ -31,13 +34,16 @@ const GenericButton = (props: GenericButtonType) => {
     children,
     color = 'btn-primary',
     disabled = false,
+    endIcon: EndIcon,
+    endIconStyles = {},
     glass = false,
-    iconUrl = null,
     name,
     onClick,
     outlineButton = false,
     size = 'btn-md',
     sizeText = '',
+    startIcon: StartIcon,
+    startIconStyles = {},
     tabIndex = 0,
     textColor = '',
     type,
@@ -50,7 +56,6 @@ const GenericButton = (props: GenericButtonType) => {
       'Both activeButton and outlineButton are enabled. Use either one, not both.'
     );
   }
-  
 
   return (
     <button
@@ -73,23 +78,19 @@ const GenericButton = (props: GenericButtonType) => {
       type={type}
       value={value}
     >
-      {iconUrl && (
-        <svg
-          xmlns={'http://www.w3.org/2000/svg'}
-          className='h-6 w-6 inline-block mr-2'
-          fill='none'
-          viewBox='0 0 24 24'
-          stroke='currentColor'
-        >
-          <path
-            strokeLinecap='round'
-            strokeLinejoin='round'
-            strokeWidth='2'
-            d='M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z'
-          />
-        </svg>
+      {StartIcon && (
+        <span className='mr-2'>
+          <StartIcon className='h-6 w-6' style={startIconStyles} />
+        </span>
       )}
+
       {children || 'GENERIC BUTTON'}
+
+      {EndIcon && (
+        <span className='ml-2'>
+          <EndIcon className='h-6 w-6' style={endIconStyles} />
+        </span>
+      )}
     </button>
   );
 };
