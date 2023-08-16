@@ -1,4 +1,4 @@
-export type GenericButtonType =
+export type ButtonType =
   React.ButtonHTMLAttributes<HTMLButtonElement> & {
     /**
      * @deprecated Use either activeButton or outlineButton, not both.

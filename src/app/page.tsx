@@ -3,6 +3,7 @@ import { locationsAdapter } from '@/adapters/locationAdapter';
 
 import CharacterClient from '@/components/CSR/CharacterClient';
 import CounterClient from '@/components/CSR/CounterClient';
+import DateTimePickerClient from '@/components/CSR/DateTimePickerClient';
 import CharacterServer from '@/components/SSR/CharacterServer';
 import LocationServer from '@/components/SSR/Location/LocationServer';
 
@@ -37,8 +38,9 @@ const HomePage = async () => {
   return (
     <div>
       <Providers>
+        <DateTimePickerClient />
+
         <CounterClient />
-        <br />
 
         <CharacterClient />
       </Providers>
@@ -46,7 +48,6 @@ const HomePage = async () => {
       <p>----------------------------------</p>
       <CharacterServer data={dataCharacter} />
 
-      <br />
       <p>----------------------------------</p>
       <LocationServer />
     </div>

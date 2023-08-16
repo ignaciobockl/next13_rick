@@ -1,8 +1,8 @@
-import { GenericButtonType } from './interface';
+import { ButtonType } from './interface';
 
 /**
  * A reusable generic button in the DaisyUI style.
- * @param {GenericButtonType} props - Properties for the generic button.
+ * @param {ButtonType} props - Properties for the generic button.
  * @param {boolean} [activeButton=false] (Optional) - Specifies whether the button should have active style.
  * @param {string} [color='btn-primary'] (Optional) - Sets the color of the button using predefined classes like 'bg-green-500' or 'btn-primary'.
  * @param {string} [className=''] (Optional) - Additional CSS classes to apply to the button.
@@ -27,7 +27,7 @@ import { GenericButtonType } from './interface';
  * @throws Will throw an error if both `activeButton` and `outlineButton` are enabled simultaneously.
  */
 
-const GenericButton = (props: GenericButtonType) => {
+const Button = (props: ButtonType) => {
   const {
     activeButton = false,
     className = '',
@@ -95,4 +95,4 @@ const GenericButton = (props: GenericButtonType) => {
   );
 };
 
-export default GenericButton;
+export default Button;

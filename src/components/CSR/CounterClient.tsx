@@ -5,8 +5,7 @@ import { FaDocker } from 'react-icons/fa6';
 import { decrement, increment } from '@/redux/features/counterSlice';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 
-import GenericButton from '../Custom Components/GenericButton';
-import { DatePicker } from '../ui/DatePicker';
+import Button from '../Custom Comp/Button';
 
 const CounterClient = () => {
   const count = useAppSelector((state) => state.counter.value);
@@ -19,19 +18,17 @@ const CounterClient = () => {
   };
 
   return (
-    <div className='p-6 sm:p-10'>
-      <h1 className='text-center font-bold text-3xl'>COUNTER</h1>
-      <br />
+    <div className='flex flex-col items-center p-6 sm:p-10 m-2'>
+      <h1 className='text-center font-bold text-3xl mb-2'>COUNTER</h1>
 
-      <h1>total: {count}</h1>
-      <br />
+      <h1 className='m-2'>total: {count}</h1>
 
-      <button className='btn' onClick={() => dispatch(increment())}>
+      <div className='flex flex-col'>
+      <button className='btn mb-2' onClick={() => dispatch(increment())}>
         Increment{' '}
       </button>
-      <br />
 
-      <GenericButton
+      <Button
         color='bg-fuchsia-700'
         disabled={false}
         onClick={handleDecrementClick}
@@ -41,12 +38,8 @@ const CounterClient = () => {
         type='button'
       >
         Decrement
-      </GenericButton>
-      <br />
-      <br />
-
-      <DatePicker />
-
+      </Button>
+      </div>
     </div>
   );
 };
